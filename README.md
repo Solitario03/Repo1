@@ -1,5 +1,5 @@
 # Repo1
-- archibo de prueba
+- archivo de prueba
 - es para editar
 - solo insanidad
   
