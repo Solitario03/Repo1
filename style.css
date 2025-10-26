@@ -134,7 +134,7 @@ td.texto {
     line-height: 1.6; 
 }
 
-/* === SECCIÓN DEL CÓDIGO === */
+
 .codigo-slide {
     display: flex;
     flex-direction: column;
