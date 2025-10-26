@@ -135,7 +135,7 @@ td.texto {
 }
 
 /* === SECCIÓN DEL CÓDIGO === */
-codigo-slide {
+.codigo-slide {
     display: flex;
     flex-direction: column;
     align-items: center;  /* centramos el contenido */
@@ -144,15 +144,14 @@ codigo-slide {
     background: #f8f8f8;
 }
 
-codigo-scroll {
-  max-height: 300px;      /* altura visible del bloque */
-  overflow-y: auto;       /* barra de scroll vertical */
-  background: #1e1e1e;    /* color de fondo tipo editor */
-  color: #f8f8f2;         /* color del texto */
-  padding: 1em;           /* espacio interno */
-  border-radius: 8px;     /* esquinas redondeadas */
-  font-family: monospace; /* fuente de código */
-  white-space: pre;       /* mantiene la indentación */
+.codigo-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    background: #1e1e1e;
+    color: #f8f8f2;
+    padding: 1em;
+    border-radius: 8px;
+    font-family: monospace;
 }
 
 
