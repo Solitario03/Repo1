@@ -372,7 +372,98 @@ class EstadisticaCuantitativa(EstadisticaBase):
         </div>
     </section>
 
+    <section class="codigo-slide">
+        <br></br>
+        <h2>Estadísticas cualitativas</h2>
+        <p>
+            La clase <strong>EstadisticaCualitativa</strong> analiza datos no numéricos, calculando la moda y generando una tabla de frecuencias. Sobrescribe métodos incompatibles como promedio, mínimo y máximo, y ofrece un <strong>resumen</strong> completo de las estadísticas claves.
+        </p>
+        <div class="codigo-scroll">
+<pre><code>
+from EstadisticaBase import EstadisticaBase
+
+class EstadisticaCualitativa(EstadisticaBase):
     
+    def __init__(self, datos):
+        
+        if not isinstance(datos, (list, tuple)):
+            raise TypeError("Los datos deben estar en una lista o tupla.")
+        self.datos = datos
+
+    # --- Implementación de nuevos métodos ---
+
+    def moda(self):
+        if not self.datos:
+            return []
+            
+        frecuencias = self.tabla_frecuencias()
+        
+        if not frecuencias:
+            return []
+
+        # Encontrar la frecuencia máxima
+        max_freq = max(frecuencias.values())
+
+        # Recolectar todas las claves que tengan esa frecuencia máxima
+        modas = [k for k, v in frecuencias.items() if v == max_freq]
+        
+        return modas
+
+    def tabla_frecuencias(self):
+        
+        frecuencias = {}
+        for item in self.datos:
+            if item in frecuencias:
+                frecuencias[item] += 1
+            else:
+                frecuencias[item] = 1
+        return frecuencias
+
+    # --- Sobrescritura de métodos incompatibles ---
+
+    def promedio(self):
+        return None
+
+    def minimo(self):
+        try:
+            return min(self.datos) if self.datos else None
+        except TypeError:
+            return "N/A (tipos mixtos)"
+
+    def maximo(self):
+        try:
+            return max(self.datos) if self.datos else None
+        except TypeError:
+            return "N/A (tipos mixtos)"
+
+    def resumen(self):
+        
+        print("----- RESUMEN DE DATOS (CUALITATIVOS) -----")
+        print(f"Cantidad de datos: {self.cantidad_datos()}")
+        
+        mods = self.moda()
+        print(f"Moda(s): {', '.join(map(str, mods)) if mods else 'N/A'}")
+
+        print("\n--- Tabla de Frecuencias ---")
+        frecuencias = self.tabla_frecuencias()
+        
+        if not frecuencias:
+            print("No hay datos.")
+        else:
+            
+            frecuencias_ordenadas = sorted(
+                frecuencias.items(), 
+                key=lambda par: par[1], 
+                reverse=True
+            )
+            
+            for item, cuenta in frecuencias_ordenadas:
+                print(f"  - {item}: {cuenta}")
+        
+        print("-----------------------------------------------------")
+</code></pre>
+        </div>
+    </section>    
 
     <section>
         <h2>Conclusiones</h2>
