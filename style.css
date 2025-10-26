@@ -146,7 +146,7 @@ td.texto {
 
 .codigo-scroll {
     max-height: 400px;
-    width: 60%;
+    width: 40%;   /* ← antes era 80% */
     overflow-y: auto;
     background: #1e1e1e;
     color: #f8f8f2;
@@ -156,5 +156,3 @@ td.texto {
     white-space: pre;
     text-align: left;
 }
-
-
