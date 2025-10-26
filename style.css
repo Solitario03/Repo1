@@ -145,13 +145,16 @@ td.texto {
 }
 
 .codigo-scroll {
-    max-height: 300px;
+    max-height: 400px;
+    width: 80%;
     overflow-y: auto;
     background: #1e1e1e;
     color: #f8f8f2;
     padding: 1em;
     border-radius: 8px;
-    font-family: monospace;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    text-align: left;
 }
 
 
