@@ -122,8 +122,8 @@ section pre {
     overflow-x: auto;
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
-    width: 40%;          
-    max-height: 300px;   
+    width: 60%;          
+    max-height: 400px;   
     overflow-y: auto;    
     text-align: left;
 }
@@ -146,7 +146,7 @@ td.texto {
 
 .codigo-scroll {
     max-height: 400px;
-    width: 40%;   /* ← antes era 80% */
+    width: 400px;
     overflow-y: auto;
     background: #1e1e1e;
     color: #f8f8f2;
