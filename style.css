@@ -144,18 +144,15 @@ td.texto {
     background: #f8f8f8;
 }
 
-/* === CUADRO DEL CÓDIGO CON SCROLL === */
 .codigo-scroll {
-    width: 80%;
-    max-height: 400px; /* altura máxima visible */
-    overflow-y: auto;  /* scroll solo vertical */
-    background-color: #282c34;
-    color: #f8f8f2;
-    padding: 1.2rem;
-    border-radius: 10px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    text-align: left;
+  max-height: 300px;      /* altura visible del bloque */
+  overflow-y: auto;       /* barra de scroll vertical */
+  background: #1e1e1e;    /* color de fondo tipo editor */
+  color: #f8f8f2;         /* color del texto */
+  padding: 1em;           /* espacio interno */
+  border-radius: 8px;     /* esquinas redondeadas */
+  font-family: monospace; /* fuente de código */
+  white-space: pre;       /* mantiene la indentación */
 }
+
 
