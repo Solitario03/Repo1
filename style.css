@@ -159,16 +159,3 @@ td.texto {
     text-align: left;
 }
 
-/* === OPCIONAL: estética del bloque de código === */
-.codigo-scroll::-webkit-scrollbar {
-    width: 10px;
-}
-.codigo-scroll::-webkit-scrollbar-thumb {
-    background: #667eea;
-    border-radius: 5px;
-}
-.codigo-scroll::-webkit-scrollbar-thumb:hover {
-    background: #764ba2;
-}
-
-
