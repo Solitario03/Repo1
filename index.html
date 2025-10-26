@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentación tipo PowerPoint</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow: hidden; /* evita scroll */
+}
+
+/* === ENCABEZADO === */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+main {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    height: 100vh;
+    width: 100%;
+}
+
+/* === CADA SLIDE === */
+section {
+    min-width: 100%;
+    height: 100vh;
+    padding: 4rem 2rem 2rem; /* espacio para el header */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ddd;
+}
+
+section:nth-child(even) {
+    background: #f8f8f8;
+}
+
+h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+p {
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* === NAVEGACIÓN === */
+.nav-buttons {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 20;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #764ba2;
+}
+
+/* === PIE DE PÁGINA === */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Análisis Estadístico con Programación Orientada a Objetos</h1>
+</header>
+
+<main id="slides">
+    <section>
+        <table>
+            <tr>
+                <td class="logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Unalm_logo.png" width="130" alt="Logo UNALM">
+                </td>
+                <td class="texto">
+                    <strong>Universidad Nacional Agraria La Molina</strong><br><br>
+                    Facultad de Economía y Planificación<br><br>
+                    Departamento de Estadística e Informática
+                </td>
+            </tr>
+        </table>
+        <h2>Integrantes</h2>
+        
+        <div class="team-members">
+            <div class="member">Malvacedo Quiñonez, Jean Franco</div>
+            <div class="member">Cruz Cruz, Hilary Penelope</div>
+            <div class="member">Maria Fernanda, Chávez Mendoza</div>
+            <div class="member">Mejia Auccapoma, Piero Cesar</div>
+        </div>
+        
+        <br><br>
+        
+        <h2>Docente</h2>
+            <div class="profesora">
+                Ana Cecilia Vargas Paredes
+            </div>
+        
+    </section>
+    
+    <section>
+        <h2>Introducción</h2>
+            <p>
+                El presente trabajo grupal tiene como propósito aplicar los principios de la 
+                <strong>Programación Orientada a Objetos (POO)</strong> en el desarrollo de una librería 
+                estadística en Python. A través del uso de clases, herencia y polimorfismo, se busca crear 
+                un conjunto de herramientas que permitan calcular medidas estadísticas básicas tanto para 
+                datos cuantitativos como cualitativos. 
+            </p>
+            <p>
+                El proyecto se desarrolló de manera colaborativa mediante la plataforma 
+                <strong>GitHub</strong>, promoviendo la organización del código, el control de versiones 
+                y el trabajo en equipo. De esta manera, se integran los conceptos teóricos de la POO con 
+                la práctica del análisis estadístico, fortaleciendo las competencias en programación y 
+                análisis de datos.
+            </p>
+        <br><br>
+        <h2>Objetivos</h2>
+            <h3>Objetivo general</h3>
+                <p>
+                    Implementar un programa en Python que aplique los conceptos de Programación Orientada a 
+                    Objetos para realizar análisis estadísticos de datos cuantitativos y cualitativos.
+                </p>
+
+            <h3>Objetivos específicos</h3>
+                <ul>
+                    <li>Diseñar una clase base que gestione la validación y manipulación de los datos ingresados.</li>
+                    <li>Aplicar herencia para crear clases derivadas que calculen medidas de tendencia central y dispersión para datos cuantitativos.</li>
+                    <li>Implementar polimorfismo para adaptar los métodos de análisis según el tipo de variable (cuantitativa o cualitativa).</li>
+                    <li>Desarrollar un proyecto colaborativo en GitHub aplicando buenas prácticas de documentación y control de versiones.</li>
+                </ul>
+
+        
+    </section>
+
+    <section class="codigo-slide">
+        <h2>Estadística básica</h2>
+        <div class="codigo-pequeno">
+    <pre><code class="python">
+    from abc import ABC, abstractmethod
+    
+    class EstadisticaBase(ABC):
+        def __init__(self, datos):
+            # Validar que los datos sean una lista o tupla numérica
+            if not isinstance(datos, (list, tuple)):
+                raise TypeError("Los datos deben estar en una lista o tupla.")
+            if not all(isinstance(x, (int, float)) for x in datos):
+                raise ValueError("Todos los elementos deben ser números.")
+            self.datos = datos
+    
+        @abstractmethod
+        def promedio(self): pass
+        @abstractmethod
+        def minimo(self): pass
+        @abstractmethod
+        def maximo(self): pass
+        @abstractmethod
+        def resumen(self): pass
+    
+        def cantidad_datos(self):
+            return len(self.datos)
+    
+        def tipo_datos(self):
+            return self.__class__.__name__
+    
+    class EstadCB(EstadisticaBase):
+    
+        def promedio(self):
+            return sum(self.datos) / len(self.datos) if self.datos else 0
+    
+        def minimo(self):
+            return min(self.datos)
+    
+        def maximo(self):
+            return max(self.datos)
+    
+        def resumen(self):
+            print("----- RESUMEN DE DATOS -----")
+            print(f"Tipo de clase: {self.tipo_datos()}")
+            print(f"Cantidad de datos: {self.cantidad_datos()}")
+            print(f"Valor mínimo: {self.minimo()}")
+            print(f"Valor máximo: {self.maximo()}")
+            print(f"Promedio: {self.promedio():.2f}")
+            print("----------------------------")
+    </code></pre>
+        </div>
+    </section>
+
+
+    <section>
+        <h2>Metodología</h2>
+        <p>Diseñamos el CSS para dividir el contenido en pantallas completas, controladas por teclado o botones.</p>
+    </section>
+
+    <section>
+        <h2>Equipo</h2>
+        <div class="team-members">
+            <div class="member">Piero</div>
+            <div class="member">Integrante 2</div>
+            <div class="member">Integrante 3</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Conclusiones</h2>
+        <p>Este formato es ideal para presentaciones interactivas en línea, sin depender de PowerPoint.</p>
+    </section>
+</main>
+
+<div class="nav-buttons">
+    <button id="prev">← Anterior</button>
+    <button id="next">Siguiente →</button>
+</div>
+
+<footer>
+    <p>© 2025 Mi Presentación - Inspirada en GitHub Pages</p>
+</footer>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('section');
+const totalSlides = slides.length;
+const main = document.getElementById('slides');
+
+function showSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
+    currentSlide = index;
+    main.style.transform = 'translateX(' + (-index * 100) + 'vw)';
+}
+
+document.getElementById('next').addEventListener('click', () => showSlide(currentSlide + 1));
+document.getElementById('prev').addEventListener('click', () => showSlide(currentSlide - 1));
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+    if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+});
+</script>
+
+</body>
+</html>
