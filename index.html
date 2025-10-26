@@ -178,7 +178,7 @@ footer {
 
     <section class="codigo-slide">
         <h2>Estadística básica</h2>
-        <div class="codigo-pequeno">
+        <div class="codigo-scroll">
     <pre><code class="python">
     from abc import ABC, abstractmethod
     
@@ -206,7 +206,6 @@ footer {
             return self.__class__.__name__
     
     class EstadCB(EstadisticaBase):
-    
         def promedio(self):
             return sum(self.datos) / len(self.datos) if self.datos else 0
     
@@ -227,6 +226,7 @@ footer {
     </code></pre>
         </div>
     </section>
+
 
 
 
