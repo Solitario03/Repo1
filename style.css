@@ -135,7 +135,7 @@ td.texto {
 }
 
 /* === SECCIÓN DEL CÓDIGO === */
-.codigo-slide {
+codigo-slide {
     display: flex;
     flex-direction: column;
     align-items: center;  /* centramos el contenido */
@@ -144,7 +144,7 @@ td.texto {
     background: #f8f8f8;
 }
 
-.codigo-scroll {
+codigo-scroll {
   max-height: 300px;      /* altura visible del bloque */
   overflow-y: auto;       /* barra de scroll vertical */
   background: #1e1e1e;    /* color de fondo tipo editor */
